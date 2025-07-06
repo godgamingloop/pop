@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Bestie 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #ffe6eb;
+      color: #333;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    section {
+      height: 100vh;
+      text-align: center;
+      padding: 50px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    section:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    section:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      color: #d6336c;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+      max-width: 500px;
+    }
+
+    .btn {
+      background: #ff69b4;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e055a1;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 120px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      padding: 20px;
+      background: #d6336c;
+      color: white;
+      font-size: 1em;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <section id="welcome">
+    <h1>Happy Birthday Bestie </h1>
+    <p>To the most amazing person in my life</p>
+    <p><i>"Every moment with you is a gift, and today we celebrate the greatest gift of all — YOU!"</i></p>
+    <a href="#celebrate" class="btn" onclick="launchConfetti()">Begin Your Surprise! 💝</a>
+  </section>
+
+  <!-- Page 2 -->
+  <section id="celebrate" style="background: #ffd9ec;">
+    <h1>Let's Celebrate! 🎂</h1>
+    <p>Get ready for some lovely memories!</p>
+    <a href="#memories" class="btn" onclick="launchConfetti()">Continue to Next Page →</a>
+  </section>
+
+  <!-- Page 3 -->
+  <section id="memories" style="background: #fce4ec;">
+    <h1>Mirror of Memories 💞</h1>
+    <p>Our journey together, in sweet snapshots.</p>
+    <div class="gallery">
+  <img src="https://i.ibb.co/rR74Xqkb/Whats-App-Image-2025-07-06-at-21-29-17-749ced60.jpg" alt="1" />
+  <img src="https://i.ibb.co/DPYHK9SQ/Whats-App-Image-2025-07-06-at-21-29-17-fd77e3cd.jpg" alt="2" />
+  <img src="https://i.ibb.co/hJRKX6wk/Whats-App-Image-2025-07-06-at-21-29-18-3acf54ff.jpg" alt="3" />
+  <img src="https://i.ibb.co/GvnCw0N7/Whats-App-Image-2025-07-06-at-21-32-06-0a6312d0.jpg" alt="4" />
+</div>
+
+
+    <a class="btn" href="#">Download This Memory 📥</a>
+  </section>
+
+  <footer>
+    Made with money 💵 of hetvi by Het😀
+  </footer>
+
+  <script>
+    function launchConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }
+
+    // Animate sections when they enter view
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
